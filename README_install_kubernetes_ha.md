@@ -18,9 +18,9 @@ scp -r /root/kubernetes-cluster/ root@k8s-worker3.example.com:/root/ 复制项�
 2.harbor1 单独上传镜像包k8s-repo-1.11.0
 
 3.master1执行 
-./bash_install_master1.sh
-剩余所有节点执行
-./bash_install.sh
+./base_install_master1.sh
+其他节点执行 
+./base_install.sh
 
 4.workers执行
 ./ipvsadm.sh 
@@ -28,9 +28,9 @@ scp -r /root/kubernetes-cluster/ root@k8s-worker3.example.com:/root/ 复制项�
 5.masters执行
 ./keepalived.sh
 
-6.harbor1执行
+6.gcr.io(harbor)执行
 ./harbor-repo.sh
-剩余所有节点执行
+剩余其他节点执行
 ./harbor-test.sh
 
 7.所有机器重启
@@ -61,4 +61,4 @@ kubectl apply -f plugin/rbac.yaml
 
 9.workers根据kubernetes-etcd-ha.sh安装过程中提示的kubeadm join信息加入集群，如果没记住在master1上执行kubeadm token create --print-join-command查看
 
-10.如果master节点在加入集群的过程中出现任何问题，可以在所有master节点上执行kubeadm reset，然后再重新执行第8步创建集群
+10.如果master节点在加入集群的过程中出现任何问题，可以在所有master节点上执行kubeadm reset，然后再重新执行第8步创建集群。

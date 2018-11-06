@@ -1,0 +1,11 @@
+
+CP0_IP=192.168.1.113
+CP0_HOSTNAME=k8s-master1.example.com
+CP1_IP=192.168.1.114
+CP1_HOSTNAME=k8s-master2.example.com
+CP2_IP=192.168.1.115
+CP2_HOSTNAME=k8s-master3.example.com
+VIP=192.168.1.120
+NET_IF=eth0
+CIDR=172.168.0.0/16
+
