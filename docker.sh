@@ -17,8 +17,9 @@ sed -i "s#ExecStart=/usr/bin/dockerd#ExecStart=/usr/bin/dockerd --registry-mirro
 sleep 3s
 
 echo "配置docker服务"
+systemctl daemon-reload
 systemctl enable docker.service
-systemctl start docker.service
+systemctl restart docker.service
 sleep 3s
 
 echo "docker服务测试"
