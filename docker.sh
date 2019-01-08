@@ -4,9 +4,14 @@ echo "卸载默认docker，生产慎用"
 yum remove -y docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-selinux docker-engine-selinux docker-engine
 sleep 3s
 
+echo "安装yum管理工具"
+yum install -y yum-utils device-mapper-persistent-data lvm2
+sleep 3s
+
 echo "配置docker阿里源"
 yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 yum makecache fast
+sleep 3s
 
 echo "安装docker服务"
 yum install -y docker-ce
