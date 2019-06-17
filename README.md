@@ -18,9 +18,9 @@ scp -r /root/kubernetes-cluster/ root@k8s-worker3.example.com:/root/ 复制项�
 2.harbor1 单独上传镜像包k8s-repo-1.11.0
 
 3.master1执行 
-./bash_install_master1.sh
+./base_install_master1.sh
 剩余所有节点执行
-./bash_install.sh
+./base_install.sh
 
 4.workers执行
 ./ipvsadm.sh 
