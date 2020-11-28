@@ -17,9 +17,12 @@ echo "安装docker服务"
 yum install -y docker-ce
 sleep 3s
 
-echo "修改docker默认镜像仓库，改为163的源"
-sed -i "s#ExecStart=/usr/bin/dockerd#ExecStart=/usr/bin/dockerd --registry-mirror=https://pee6w651.mirror.aliyuncs.com#g" /lib/systemd/system/docker.service 
-sleep 3s
+echo "修改docker默认镜像仓库，改为阿里云的源"
+sudo mkdir -p /etc/docker
+echo "{
+  \"registry-mirrors\": [\"https://p7alan50.mirror.aliyuncs.com\"]
+}
+" > /etc/docker/daemon.json
 
 echo "配置docker服务"
 systemctl daemon-reload
